@@ -34,3 +34,4 @@ Adds the newEntry (created entry) to the entries array.
 Calls the _renderEntries()_ function to update the UI and display the newly added entry.
 
 
+
