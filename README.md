@@ -28,4 +28,9 @@ An object named entry is created with three properties:
     The entry object is converted into a JSON string using JSON.stringify and sent as the request payload.
 6.await:
      Pauses the function until the server responds to the request, storing the response in the response variable.
+The _response.json()_ method extracts and parses the JSON data from the server's response.
+> entries.push(newEntry);
+Adds the newEntry (created entry) to the entries array.
+Calls the _renderEntries()_ function to update the UI and display the newly added entry.
+
 
