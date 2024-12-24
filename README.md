@@ -33,5 +33,41 @@ The >  _response.json()_ method extracts and parses the JSON data from the serve
 Adds the newEntry (created entry) to the entries array.
 Calls the _renderEntries()_ function to update the UI and display the newly added entry.
 
+### Update Entry Function
+> async function updateEntry(id, updatedEntry) {
+_async:_ Declares this function as asynchronous, allowing the use of await for handling asynchronous operations.
+_id:_ The unique identifier of the entry to be updated.
+_updatedEntry:_ An object containing the updated data for the entry.
+> const response = await fetch(`${"https://67697b74863eaa5ac0dbcaab.mockapi.io/incomecalculator/entries"}/${id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(updatedEntry),
+});
+1.fetch
+   Sends an HTTP request to update the entry with the given id.
+2.Dynamic URL
+  > `${"https://67697b74863eaa5ac0dbcaab.mockapi.io/incomecalculator/entries"}/${id}`
+Uses template literals to dynamically insert the id into the URL.
+This creates a URL like _https://67697b74863eaa5ac0dbcaab.mockapi.io/incomecalculator/entries/1_
+3.method:"PUT"
+    Specifies the HTTP method as PUT, which is used to update an existing resource on the server.
+4.headers: { "Content-Type": "application/json" },
+    Indicates the request body is in JSON format.
+5.body: JSON.stringify(updatedEntry),
+     Converts the updatedEntry object into a JSON string for sending in the request body.
+> const data = await response.json();
+    response.json() extracts the JSON data and parses it into a JavaScript object.
+> entries = entries.map((entry) => (entry.id === id ? data : entry));
+     entries.map:
+  Iterates through the entries array to update the relevant entry.
+  If the entry.id matches the id of the updated entry:
+  Replace the old entry with the updated entry (data).
+  Otherwise, keep the existing entry unchanged.
+
+
+
+
+
+
 
 
