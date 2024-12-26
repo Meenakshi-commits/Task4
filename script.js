@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateSummary(entries) {
         const income = entries.filter((e) => e.type === "income").reduce((sum, e) => sum + e.amount, 0);
         const expenses = entries.filter((e) => e.type === "expense").reduce((sum, e) => sum + e.amount, 0);
-        const balance = income - expenses;
+        const balance = income + expenses;
 
         totalIncome.textContent = `${income.toFixed(2)}`;
         totalExpenses.textContent = `${expenses.toFixed(2)}`;
